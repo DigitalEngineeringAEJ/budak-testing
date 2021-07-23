@@ -9,8 +9,8 @@ class ProjectTask(models.Model):
 
     partner_id = fields.Many2one(string="Kunde")
     license_plate = fields.Char(string="Kennzeichen")
-    date_off_view = fields.Datetime(string="Besichtigunsdatum")
-    place_offview = fields.Char(string="Besichtigunsort")
+    date_off_view = fields.Datetime(string="Besichtigungsdatum")
+    place_offview = fields.Char(string="Besichtigungsort")
     agent = fields.Char(string="Vermittler")
     report_number = fields.Char(string="GA-Nr.:")
     day_offcrash = fields.Datetime(string="Schadenstag")
@@ -32,8 +32,8 @@ class ProjectTask(models.Model):
     client_phone = fields.Char(string="Telefon")
     client_lawyer = fields.Boolean(string="Rechtsanwalt")
     client_name_lawyer = fields.Char(string="Name Rechtsanwalt")
-    client_insurance = fields.Boolean(string="Rechtchutzversicherung")
-    name_insurance = fields.Char(string="Rechtschutzversicherung")
+    client_insurance = fields.Boolean(string="Rechtsschutzversicherung")
+    name_insurance = fields.Char(string="Rechtsschutzversicherung")
     client_service_book = fields.Boolean(string="Service- Scheckheft")
     dekra = fields.Selection(
         selection=[("Dekra", "Dekra"), ("PLZ Fahrzeugschein", "PLZ Fahrzeugschein")], string="  "
