@@ -158,3 +158,21 @@ class ProjectTask(models.Model):
                 {"name": self.partner_id.name, "parent_folder_id": folder_month_id.id}
             )
         return folder_partner_id
+
+#Automatisches auffüllen von Kundennamme und Auftraggeber
+    @api.onchange('partner_id')
+    def onchange_partnerid(self):
+        if self.partner_id.name:
+            self.client_fam_name = self.partner_id.name.split()[1]
+            self.client_first_name = self.partner_id.name.split()[0]
+            self.client_post_code = self.partner_id.zip
+            self.client_local = self.partner_id.city
+            self.client_e_mail = self.partner_id.email
+            self.client_phone = self.partner_id.phone
+
+#Front und Hinterrad Typ wird gleichzeitig aufgefüllt
+
+    @api.onchange('front_wheel_type')
+    def _onchange_front_wheel_type(self):
+        if self.front_wheel_type:
+            self.back_wheel_type = self.front_wheel_type
